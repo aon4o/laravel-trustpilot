@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Database\Factories;
+namespace Aon2003\LaravelTrustpilot\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

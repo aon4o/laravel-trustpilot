@@ -1,5 +1,5 @@
 <?php
 
-use VendorName\Skeleton\Tests\TestCase;
+use Aon2003\LaravelTrustpilot\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
