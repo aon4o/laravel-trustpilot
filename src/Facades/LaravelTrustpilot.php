@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aon2003\LaravelTrustpilot\Facades;
 
 use Illuminate\Support\Facades\Facade;

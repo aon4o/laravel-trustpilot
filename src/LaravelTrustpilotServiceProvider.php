@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Aon2003\LaravelTrustpilot;
 
+use Aon2003\LaravelTrustpilot\Commands\LaravelTrustpilotCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Aon2003\LaravelTrustpilot\Commands\LaravelTrustpilotCommand;
 
 class LaravelTrustpilotServiceProvider extends PackageServiceProvider
 {
