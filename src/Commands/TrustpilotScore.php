@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Aon2003\LaravelTrustpilot\Commands;
 
 use Aon2003\LaravelTrustpilot\LaravelTrustpilot;
-use ErrorException;
+use Exception;
 use Illuminate\Console\Command;
 
 /**
@@ -31,7 +31,7 @@ class TrustpilotScore extends Command
             $this->info("TrustPilot score -> $score");
 
             return self::SUCCESS;
-        } catch (ErrorException $exception) {
+        } catch (Exception $exception) {
             $this->error("TrustPilot score couldn't be retrieved!");
 
             $this->error('Error: ' . $exception->getMessage());

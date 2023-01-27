@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Aon2003\LaravelTrustpilot;
 
-use ErrorException;
+use Exception;
 use Goutte\Client;
 use stdClass;
 
@@ -14,9 +14,12 @@ use stdClass;
 class LaravelTrustpilot
 {
     /**
+     * Scrapes TrustPilot and finds the information about the Score and Reviews.
+     *
      * @param string|null $domain
      * @param string|null $language
      * @return stdClass
+     * @throws Exception
      */
     public static function scrapeData(?string $domain = null, ?string $language = null): stdClass
     {
@@ -30,7 +33,13 @@ class LaravelTrustpilot
 
         $decoded_data = json_decode(html_entity_decode($page_data));
 
-        return $decoded_data->props->pageProps;
+        $page_props = $decoded_data->props->pageProps;
+
+        if (isset($page_props->statusCode) && $page_props->statusCode != 200) {
+            throw new Exception('TrustPilot error! Check if the domain for which you want to get data is registered in TrustPilot.');
+        }
+
+        return $page_props;
     }
 
     /**
@@ -38,7 +47,7 @@ class LaravelTrustpilot
      *
      * @param string|null $domain
      * @return float
-     * @throws ErrorException
+     * @throws Exception
      */
     public static function getScore(?string $domain = null): float
     {
@@ -48,12 +57,12 @@ class LaravelTrustpilot
     }
 
     /**
-     * Returns an object with the TrustPilot reviews for the given domain in the given language.
+     * Returns an array with the TrustPilot reviews for the given domain in the given language.
      *
      * @param string|null $domain
      * @param string|null $language
      * @return array
-     * @throws ErrorException
+     * @throws Exception
      */
     public static function getReviews(?string $domain = null, ?string $language = null): array
     {

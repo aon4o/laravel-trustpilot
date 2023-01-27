@@ -19,6 +19,6 @@ it('returns TrustPilot reviews for domain and language', function () {
 it('returns TrustPilot domain error', function () {
     artisan('trustpilot:reviews not_a_domain')
         ->expectsOutputToContain("TrustPilot reviews couldn't be retrieved!")
-        ->expectsOutputToContain('Error:')
+        ->expectsOutputToContain('TrustPilot error! Check if the domain for which you want to get data is registered in TrustPilot.')
         ->assertFailed();
 });
