@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace Aon2003\LaravelTrustpilot;
 
-use Aon2003\LaravelTrustpilot\Commands\LaravelTrustpilotCommand;
+use Aon2003\LaravelTrustpilot\Commands\TrustpilotReviews;
+use Aon2003\LaravelTrustpilot\Commands\TrustpilotScore;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -21,7 +22,7 @@ class LaravelTrustpilotServiceProvider extends PackageServiceProvider
             ->name('laravel-trustpilot')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-trustpilot_table')
-            ->hasCommand(LaravelTrustpilotCommand::class);
+            ->hasCommand(TrustpilotScore::class)
+            ->hasCommand(TrustpilotReviews::class);
     }
 }
