@@ -60,6 +60,8 @@ $score = LaravelTrustpilot::getScore($domain); // float
 $reviews = LaravelTrustpilot::getReviews($domain, $language); // array<stdClass>
 ```
 
+If you don't provide a domain and language the values from the config file will be used.
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
