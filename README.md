@@ -5,15 +5,11 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/aon2003/laravel-trustpilot/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/aon2003/laravel-trustpilot/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/aon2003/laravel-trustpilot.svg?style=flat-square)](https://packagist.org/packages/aon2003/laravel-trustpilot)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This is a simple Laravel package for scraping TrustPilot scores and reviews.
 
 ## Support us
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-trustpilot.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-trustpilot)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/default-pink.png)](https://www.buymeacoffee.com/aon4o)
 
 ## Installation
 
@@ -23,43 +19,45 @@ You can install the package via composer:
 composer require aon2003/laravel-trustpilot
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-trustpilot-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-trustpilot-config"
+php artisan vendor:publish --tag="trustpilot-config"
 ```
 
 This is the contents of the published config file:
 
 ```php
 return [
+    /*
+     |--------------------------------------------------------------------------
+     | Default Domain
+     |--------------------------------------------------------------------------
+     |
+     | This is the domain for which the reviews will be scraped by default.
+     | Supports subdomains.
+     */
+    'domain' => 'www.example.com',
+
+    /*
+     |--------------------------------------------------------------------------
+     | Default Language
+     |--------------------------------------------------------------------------
+     |
+     | This is the language in which the reviews will be scraped by default.
+     |
+     | Supported values: "all", ISO 639-1 language codes (ex.: "en", "ru")
+     |
+     */
+    'language' => 'all',
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-trustpilot-views"
 ```
 
 ## Usage
 
 ```php
-$laravelTrustpilot = new Aon2003\LaravelTrustpilot();
-echo $laravelTrustpilot->echoPhrase('Hello, Aon2003!');
-```
-
-## Testing
-
-```bash
-composer test
+$score = LaravelTrustpilot::getScore($domain); // float
+$reviews = LaravelTrustpilot::getReviews($domain, $language); // array<stdClass>
 ```
 
 ## Changelog
