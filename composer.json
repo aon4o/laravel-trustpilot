@@ -36,7 +36,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Aon2003\\LaravelTrustpilot\\": "src",
+            "Aon2003\\LaravelTrustpilot\\": "src"
         }
     },
     "autoload-dev": {
