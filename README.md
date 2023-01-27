@@ -68,7 +68,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-If you want to contribute, we would be plased to see your pull requests.
+If you want to contribute, we would be pleased to see your pull requests.
 
 ## Security Vulnerabilities
 
