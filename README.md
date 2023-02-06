@@ -67,7 +67,7 @@ If you don't provide a domain and language the values from the config file will 
 
 ## Commands
 
-Additionally, there are two commands that can be used for testing purpouses.
+Additionally, there are two commands that can be used for testing purposes.
 
 ### trustpilot:score
 ```php
