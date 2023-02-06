@@ -65,6 +65,35 @@ $reviews = LaravelTrustpilot::getReviews($domain, $language); // array<stdClass>
 
 If you don't provide a domain and language the values from the config file will be used.
 
+## Commands
+
+Additionally, there are two commands that can be used for testing purpouses.
+
+### trustpilot:score
+```php
+Description:
+  Gets the TrustScore of a given domain and outputs it to the console.
+
+Usage:
+  trustpilot:score [<domain>]
+
+Arguments:
+  domain                The domain for which to get the TrustScore.
+```
+
+### trustpilot:reviews
+```php
+Description:
+  Gets the reviews of a given domain and outputs them to the console.
+
+Usage:
+  trustpilot:reviews [<domain> [<language>]]
+
+Arguments:
+  domain                The domain for which to get the TrustPilot reviews.
+  language              The language in which to get the TrustPilot reviews.
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
